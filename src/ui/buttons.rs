@@ -65,7 +65,7 @@ fn get_quick_swap_callback(size: usize) -> Closure<dyn FnMut(MouseEvent)> {
             BOARD.with_borrow(|b| get_empty_field_idx(b.board().fields()).unwrap());
 
         let shuffle_sequence = get_shuffle_sequence(size, empty_field_idx, 20);
-        log::info!("Shuffle sequence: {:?}", &shuffle_sequence);
+        log::info!("Shuffle sequence: {:?}", shuffle_sequence);
 
         BOARD.with_borrow_mut(|b| {
             for swap in shuffle_sequence {
@@ -88,7 +88,7 @@ fn get_granular_swap_callback(size: usize) -> Closure<dyn FnMut(MouseEvent)> {
             BOARD.with_borrow(|b| get_empty_field_idx(b.board().fields()).unwrap());
 
         let shuffle_sequence = get_shuffle_sequence(size, empty_field_idx, num_shuffles);
-        log::info!("Shuffle sequence: {:?}", &shuffle_sequence);
+        log::info!("Shuffle sequence: {:?}", shuffle_sequence);
 
         let window = window().unwrap();
         let mut callbacks = Vec::with_capacity(num_shuffles);
@@ -178,7 +178,7 @@ fn get_swap_callback(swap: (usize, usize)) -> Closure<dyn FnMut()> {
 }
 
 fn apply_solve_sequence(solve_sequence: Vec<(usize, usize)>, interval: i32) {
-    log::info!("Solve sequence: {:?}", &solve_sequence);
+    log::info!("Solve sequence: {:?}", solve_sequence);
     let num_swaps = solve_sequence.len();
 
     let window = window().unwrap();
