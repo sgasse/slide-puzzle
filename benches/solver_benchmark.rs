@@ -1,4 +1,6 @@
-use criterion::{black_box, criterion_group, criterion_main, Criterion};
+use std::hint::black_box;
+
+use criterion::{criterion_group, criterion_main, Criterion};
 use slide_puzzle::solver::{divide_and_conquer::DacPuzzleSolver, optimal::find_swap_order};
 
 lazy_static::lazy_static! {
