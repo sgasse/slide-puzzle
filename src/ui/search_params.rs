@@ -3,7 +3,7 @@ use std::collections::BTreeMap;
 use web_sys::window;
 
 const DEFAULT_SIZE: usize = 3;
-const DEFAULT_BACKGROUND: &str = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Blue_Marble_Western_Hemisphere.jpg/600px-Blue_Marble_Western_Hemisphere.jpg?20130305115950";
+const DEFAULT_BACKGROUND: &str = "./castle.jpg";
 
 pub(crate) fn extract_parameters() -> Parameters {
     let params = search_params()
