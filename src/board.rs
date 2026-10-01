@@ -1,4 +1,4 @@
-use rand::prelude::SliceRandom;
+use rand::seq::IndexedRandom as _;
 
 use crate::error::LibError;
 
@@ -180,7 +180,7 @@ pub(crate) fn get_shuffle_sequence(
             .filter(|&element| element != prev_empty_field_idx)
             .collect();
         let chosen_neighbour = swappable_neighbours
-            .choose(&mut rand::thread_rng())
+            .choose(&mut rand::rng())
             .expect("should always have a neighbour to swap");
         swaps.push((empty_field_idx, *chosen_neighbour));
         prev_empty_field_idx = empty_field_idx;
